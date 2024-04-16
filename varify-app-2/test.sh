@@ -6,10 +6,10 @@ values=(
 code="export type pathType={path:string,pageName:string}\n\n export const data:pathType[]=["
 
 for value in ${values[@]};do
-    test=`dirname $value | sed -e 's/.\/src\/app\//\//g'`
+    path=`dirname $value | sed -e 's/.\/src\/app\//\//g'`
     name=`dirname $value | sed -e 's/.\/src\/app\///g' | sed -e 's/\([a-zA-Z0-9]\)*\///g'`
     text="Go to $name" 
-    code+="{path:'$test',pageName:'$text'},"
+    code+="{path:'$path',pageName:'$text'},"
     
 done
 
